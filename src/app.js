@@ -1,28 +1,31 @@
 'use strict';
 
 // built-in
-const path = require('path');
+const path =            require('path');
 // external
-const bodyParser = require('body-parser');
-const compress = require('compression');
-const cookieParser = require('cookie-parser');
-const express = require('express');
-const helmet = require('helmet');
-const mongoose = require('mongoose');
-const favicon = require('serve-favicon');
+const bodyParser =      require('body-parser');
+const compress =        require('compression');
+const cookieParser =    require('cookie-parser');
+const express =         require('express');
+const helmet =          require('helmet');
+const mongoose =        require('mongoose');
+const favicon =         require('serve-favicon');
 // local
 require('./app/models'); // this MUST be done before controllers
-const config = require('./config');
-const controllers = require('./app/controllers');
-const logger = require('./app/helpers/logger');
+const config =          require('./config');
+const controllers =     require('./app/controllers');
+const routes =          require('./app/routes');
+const logger =          require('./app/helpers/logger');
 
 // EXPRESS SET-UP
 // create app
 const app = express();
+
 // use jade and set views and static directories
 app.set('view engine', 'jade');
 app.set('views', path.join(config.root, 'app/views'));
 app.use(express.static(path.join(config.root, 'static')));
+
 //add middlewares
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -32,14 +35,17 @@ app.use(compress());
 app.use(cookieParser());
 app.use(favicon(path.join(config.root, 'static/img/favicon.png')));
 app.use(helmet());
-// set all controllers
-app.use('/', controllers);
+
+// set all routes
+app.use('/', routes.base);
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
+
 // general errors
 app.use((err, req, res, next) => {
   const sc = err.status || 500;

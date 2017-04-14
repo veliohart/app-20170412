@@ -1,12 +1,13 @@
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
-const del = require('del');
-const gulp = require('gulp');
+const fs =      require('fs');
+const path =    require('path');
+const del =     require('del');
+const gulp =    require('gulp');
 const plugins = require('gulp-load-plugins');
-const mkdirp = require('mkdirp');
-const vfs = require('vinyl-fs');
+const mkdirp =  require('mkdirp');
+const vfs =     require('vinyl-fs');
+
 const $ = plugins({
   pattern: ['gulp-*', 'main-bower-files']
 });
@@ -56,6 +57,10 @@ const PATHS = {
   controllers: {
     src: path.join(SRC, 'app/controllers/**/*.js'),
     dest: path.join(DEST, 'app/controllers')
+  },
+  routes: {
+      src: path.join(SRC, 'app/routes/**/*.js'),
+      dest: path.join(DEST, 'app/routes')
   },
   helpers: {
     src: path.join(SRC, 'app/helpers/**/*.js'),

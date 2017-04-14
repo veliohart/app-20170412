@@ -39,3 +39,4 @@ jspm_packages
 # ide config
 .idea/
 bower_components/
+build/
