@@ -1,15 +1,17 @@
 'use strict';
 
 // built-in
-const path =            require('path');
+const path            = require('path');
 // external
-const bodyParser =      require('body-parser');
-const compress =        require('compression');
-const cookieParser =    require('cookie-parser');
-const express =         require('express');
-const helmet =          require('helmet');
-const mongoose =        require('mongoose');
-const favicon =         require('serve-favicon');
+const bodyParser      = require('body-parser');
+const compress        = require('compression');
+const cookieParser    = require('cookie-parser');
+const express         = require('express');
+const helmet          = require('helmet');
+const mongoose        = require('mongoose');
+const passport        = require('passport');
+const auth            = require('./app/services/auth');
+const favicon         = require('serve-favicon');
 // local
 require('./app/models'); // this MUST be done before controllers
 const config =          require('./config');
@@ -22,7 +24,7 @@ const logger =          require('./app/helpers/logger');
 const app = express();
 
 // use jade and set views and static directories
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 app.set('views', path.join(config.root, 'app/views'));
 app.use(express.static(path.join(config.root, 'static')));
 
@@ -36,7 +38,17 @@ app.use(cookieParser());
 app.use(favicon(path.join(config.root, 'static/img/favicon.png')));
 app.use(helmet());
 
+//
+app.use(require('express-session')({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 // set all routes
+app.use('/user', routes.user);
 app.use('/', routes.base);
 
 // catch 404 and forward to error handler
@@ -65,6 +77,9 @@ mongoose.connect(config.db, {
   user: config.user,
   pass: config.pass
 });
+mongoose.Promise = require('bluebird');
+mongoose.set('debug', true);
+
 const db = mongoose.connection;
 db.on('error', () => {
   throw new Error(`unable to connect to database at ${config.db}`);

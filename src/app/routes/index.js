@@ -1,7 +1,10 @@
 'use strict';
+let routes = {};
 
-const base = require('./base');
+require("fs").readdirSync(__dirname).forEach(function(file) {
+  if (file.indexOf('index.js') === -1) {
+    routes[file.replace('.js', '')] = require("./" + file);
+  }
+});
 
-module.exports = {
-    base: base
-};
+module.exports = routes;

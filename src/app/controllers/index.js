@@ -1,10 +1,11 @@
 'use strict';
-// this controller is meant to set up routes from all other controllers
-// it also sets up basic express routes
+let controllers = {};
 
-const viewController = require('./view');
+require("fs").readdirSync(__dirname).forEach(function(file) {
+  if (file.indexOf('index.js') === -1) {
+    controllers[file.replace('.js', '')] = require("./" + file);
+  }
+});
 
 // export controlles
-module.exports = {
-    view: viewController
-};
+module.exports = controllers;
