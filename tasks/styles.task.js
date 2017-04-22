@@ -25,5 +25,6 @@ gulp.task('styles', () =>
     .pipe($.cssnano())
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest(PATHS.styles.dest))
+    .pipe($.livereload())
     .pipe($.print(fp => `style: ${fp}`))
 );

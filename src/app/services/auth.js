@@ -18,7 +18,7 @@ const jwtsecret                 = 'secretkey';
 passport.use(new LocalStrategy({
   usernameField: 'username',
   passwordField: 'password',
-  session: false
+  session: true
 },
 function(username, password, done) {
   console.log('username', username);

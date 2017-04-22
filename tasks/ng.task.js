@@ -34,6 +34,7 @@ gulp.task('ng:inject', [], () =>
         }
       }))
     .pipe(gulp.dest('./build/app/views/'))
+    .pipe($.livereload({ start: true }))
 );
 
 gulp.task('ng:js', ['lint:scripts'], () =>
@@ -44,6 +45,7 @@ gulp.task('ng:js', ['lint:scripts'], () =>
     .pipe($.uglify())
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest(PATHS.ng.dest))
+    .pipe($.livereload({ start: true }))
     .pipe($.print(fp => `script: ${fp}`))
 );
 
@@ -51,5 +53,6 @@ gulp.task('ng:views', [], () =>
   gulp.src(PATHS.ng.src + '**/*.html')
     .pipe($.changed(PATHS.ng.dest))
     .pipe(gulp.dest(PATHS.ng.dest))
+    .pipe($.livereload({ start: true }))
     .pipe($.print(fp => `view: ${fp}`))
 );

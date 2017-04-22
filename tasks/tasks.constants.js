@@ -17,7 +17,7 @@ const PATHS = {
       dest: path.join(DEST, 'static/js')
     },
     files: {
-      src: path.join(SRC, 'files/**/*'),
+      src: path.join('bower_components', '**/*'),
       dest: path.join(DEST, 'static/files')
     },
     fonts: {

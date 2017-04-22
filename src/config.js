@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
   // address of mongodb
-  db: process.env.MONGOURI || 'mongodb://localhost:27017/test',
+  db: process.env.MONGOURI || 'mongodb://localhost:27017/app_001',
   user: process.env.DB_USER,
   pass: process.env.DB_PASS,
   // environment

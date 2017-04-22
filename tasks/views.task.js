@@ -12,5 +12,6 @@ gulp.task('views', () =>
   gulp.src(PATHS.views.src)
     .pipe($.changed(PATHS.views.dest))
     .pipe(gulp.dest(PATHS.views.dest))
+    .pipe($.livereload())
     .pipe($.print(fp => `view: ${fp}`))
 );

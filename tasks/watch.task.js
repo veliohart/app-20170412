@@ -1,11 +1,13 @@
-const gulp =        require('gulp');
+const gulp        = require('gulp');
+const livereload  = require('gulp-livereload');
 
-const PATHS =       require('./tasks.constants').PATHS;
-const TRANSPILE =   require('./tasks.constants').TRANSPILE;
-const ALL =         require('./tasks.constants').ALL;
+const PATHS       = require('./tasks.constants').PATHS;
+const TRANSPILE   = require('./tasks.constants').TRANSPILE;
+const ALL         = require('./tasks.constants').ALL;
 
 // watch all source files for changes
 gulp.task('watch', ['build'], () => {
+  livereload.listen();
   for (const task of ALL) {
     // tanspile tasks
     if (TRANSPILE.has(task)) gulp.watch(PATHS[task].src, [`transpile:${task}`]);

@@ -1,0 +1,45 @@
+<div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12">
+      <p>Search in:</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12">
+      <div class="input-group">
+        <div class="input-group-btn">
+            <button type="button" class="btn btn-default" 
+              data-ng-class="{'active': $search.type == 'posts'}" 
+              data-ng-click="$search.changeType('posts')">Posts</button>
+            <button type="button" class="btn btn-default" 
+              data-ng-class="{'active': $search.type == 'albums'}" 
+              data-ng-click="$search.changeType('albums')">Albums</button>
+            <button type="button" class="btn btn-default" 
+              data-ng-class="{'active': $search.type == 'both'}" 
+              data-ng-click="$search.changeType('both')">Both</button>
+        </div>
+        <input type="text" class="form-control" role="search" autofocus data-ng-model="$search.text">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+      <div data-ng-class="{'col-xs-12 col-sm-6': $search.type == 'both', 'col-xs-12 col-sm-12': $search.type == 'posts'}" 
+        data-ng-show="$search.type == 'posts' || $search.type == 'both'">
+      <h3>Posts</h3>
+        <div data-ng-repeat="post in $search.posts | filter: {title: $search.text}">
+          <post-item data-item="post"></post-item>
+        </div>
+    </div>
+    <div data-ng-class="{'col-xs-12 col-sm-6': $search.type == 'both', 'col-xs-12 col-sm-12': $search.type == 'posts'}" 
+      data-ng-show="$search.type == 'albums' || $search.type == 'both'">
+      <h3>Albums</h3>
+      <ul>
+        <li data-ng-repeat="album in $search.albums  | filter: {title: $search.text}">
+          <p>{{album}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

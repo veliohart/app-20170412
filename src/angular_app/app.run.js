@@ -4,10 +4,14 @@
     .run(['$rootScope', '$state', '$location', adminAppRun]);
 
   function adminAppRun($rootScope, $state, $location) {
+    // var Visualizer = window['ui-router-visualizer'].Visualizer;
+    // var pluginInstance = $uiRouter.plugin(Visualizer);
+
     $rootScope.$on('$stateChangeStart', function (evt, to, params) {
+        console.log('to.redirectTo', to);
+      
       if (to.redirectTo) {
         evt.preventDefault();
-        //console.log('to.redirectTo', to.redirectTo);
         $state.go(to.redirectTo, params, {reload: true, location: 'replace'});
       }
     });

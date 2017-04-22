@@ -11,5 +11,10 @@
   function PageController() {
     var vm = this;
     vm.title = 'qq text';
+    vm.$onInit = onInit;
+
+    function onInit() {
+      
+    }
   }
 })();

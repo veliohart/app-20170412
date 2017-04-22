@@ -1,0 +1,5 @@
+<div class="well album-well">
+  <h3>Title: <strong>{{$post.item.title}}</strong></h3>
+  <p data-ng-bind="$post.item.body"></p>
+  <a ui-sref="userPost({postId: $post.item.id})">see comments <span class="fa fa-eye"></span></a>
+</div>

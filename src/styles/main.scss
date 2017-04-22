@@ -4,7 +4,7 @@
 // variables
 $font-fancy: Raleway-Regular;
 $font-base: "Courier New", Courier, monospace;
-$base-color: rgba(189, 195, 199, 1);
+$base-color: #fff;
 
 // semi-sensible defaults
 html {
@@ -19,9 +19,19 @@ html {
 body {
   font-size: 1.4rem;
   font-family: $font-base;
-  padding: 3rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-fancy;
+}
+
+content {
+  display: block;
+  padding-top: 55px;
+}
+
+.side-bar {
+    float: left;
+    width: 350px;
+    padding: 0 15px;
 }
