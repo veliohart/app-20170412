@@ -2,12 +2,12 @@
   'use strict';
   angular.module('adminApp')
     .component('usersList', {
-      controller: ['$http', '$state', UsersListController],
+      controller: ['$state', '$users', UsersListController],
       controllerAs: '$uList',
       templateUrl: './angular_app/components/users-list/users-list.component.html'
     });
 
-  function UsersListController($http, $state) {
+  function UsersListController($state, $users) {
     var vm = this;
 
     vm.$onInit = onInit;
@@ -17,12 +17,12 @@
       vm.usersList = [];
     }
 
-    $http.get('/api/users')
-        .then(function(result) {
-          angular.copy(result.data, vm.usersList);
-        })
-        .catch(function(err) {
-          console.log(err);
-        });
+    $users.getUsers()
+      .then(function(result) {
+        angular.copy(result.data, vm.usersList);
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
   }
-})()
+})();

@@ -12,7 +12,7 @@
     vm.$onInit = onInit;
 
     function onInit() {
-      vm.koo = 'koo11';
+      vm.koo = '';
     }
   }
 })();

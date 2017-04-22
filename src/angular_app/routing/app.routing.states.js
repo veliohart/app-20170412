@@ -30,7 +30,7 @@
             template: '<header-component></header-component>'
           },
           content: {
-            template: '<search>qq</search>'
+            template: '<search></search>'
           },
           footer: {
             template: '<footer></footer>'
