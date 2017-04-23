@@ -9,12 +9,13 @@
     });
 
   function UserPostsController($posts, $comments, $state) {
+    console.log('userPosts');
+
     var vm = this;
 
     vm.$onInit = onInit;
 
     function onInit() {
-      vm.koo = $state.current.name;
       vm.post = {};
       vm.albums = [];
 

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm-6">
     <h4>post</h4>
-    <p data-ng-repeat="post in $uPosts.posts track by post.id">{{post.title}}</p>
+    <p data-ng-bind="$uPosts.post">{{post.title}}</p>
   </div>
 
   <div class="col-sm-6">

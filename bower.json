@@ -12,7 +12,10 @@
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
     "angular-ui-router": "1.0.0-beta.3",
-    "angular": "angularjs#^1.6.4",
-    "rxjs": "^4.1.0"
+    "angular": "^1.6.4",
+    "rxjs": "^4.1.0",
+    "highcharts": "^5.0.10",
+    "ngstorage": "ng-storage#^0.4.2",
+    "angular-mocks": "^1.6.4"
   }
 }

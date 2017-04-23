@@ -12,7 +12,6 @@
     vm.$onInit = onInit;
 
     function onInit() {
-      vm.koo = '';
     }
   }
 })();

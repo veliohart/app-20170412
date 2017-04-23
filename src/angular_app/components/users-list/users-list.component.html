@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-sm-3">
       <h3> Users list </h3>
       <div class="list-group">
-        <a class="list-group-item" data-ng-repeat="user in $uList.usersList" ui-sref="userAlbums({userId: user.id})" ui-sref-active="active" data-ng-bind="user.name"></a>
+        <a class="list-group-item" data-ng-repeat="user in $uList.usersList" ui-sref="userPosts({userId: user.id})" ui-sref-active="active" data-ng-bind="user.name"></a>
       </div>
     </div>
 

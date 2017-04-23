@@ -1,9 +1,14 @@
 <div class="row">
-  <div class="col-xs-12 col-sm-5">
-    <h3> Posts list </h3>
+  <div class="col-xs-12 col-sm-7">
+    <h3> 
+      <div class="input-group">
+        <span class="input-group-addon">Posts list</span>
+        <input type="text" data-ng-model="$UserPosts.query" class="form-control">
+      </div> 
+    </h3>
   </div>
 
-  <div class="col-xs-12 col-sm-12" data-ng-repeat="post in $UserPosts.list">
+  <div class="col-xs-12 col-sm-12" data-ng-repeat="post in $UserPosts.list | filter: {title: $UserPosts.query}">
     <post-item data-item="post"></post-item>
   </div>
 </div>

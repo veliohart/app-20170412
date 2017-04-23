@@ -44,9 +44,9 @@ function login(req, res) {
 
 function auth(req, res) {
     if (req.user) {
-        res.send("hello " + req.user.displayName);
+        res.send(true);
     } else {
-        res.send("No such user");
+        res.send(false);
         console.log("err", err);
     }
 }

@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-3" data-ng-repeat="user in $ucList.users">
+        <div class="well well-sm user-card-container">
+            <p>
+                <span class="glyphicon glyphicon-user"></span>
+                <span data-ng-bind="'User ID: ' + user.id"></span>
+                <a ui-sref="userPosts({userId: user.id})" class="pull-right">posts</a>
+            </p>
+            <p data-ng-bind="'Full name: ' + user.name"></p>
+            <p data-ng-bind="'User name: ' + user.username"></p>
+            <p data-ng-bind="'e-mail: ' + user.email"></p>
+            <p>
+                User address:
+                <ul class="list-group">
+                    <li class="list-group-item" data-ng-bind="'Street: ' + user.address.street"></li>
+                    <li class="list-group-item" data-ng-bind="'Suite: ' + user.address.suite"></li>
+                    <li class="list-group-item" data-ng-bind="'City: ' + user.address.city"></li>
+                    <li class="list-group-item" data-ng-bind="'Zip code: ' + user.address.zipcode"></li>
+                    <li class="list-group-item">Geo:
+                        <div data-ng-bind="'lat: ' + user.address.geo.lat"></div>
+                        <div data-ng-bind="'lng: ' + user.address.geo.lng"></div>
+                    </li>
+                </ul>
+            </p>
+            <p data-ng-bind="'phone: ' + user.phone"></p>
+            <p data-ng-bind="'website: ' + user.website"></p>
+            <p>
+                Company:
+            <ul class="list-group">
+                <li class="list-group-item" data-ng-bind="'Name: ' + user.company.name"></li>
+                <li class="list-group-item" data-ng-bind="'Catch Phrase: ' + user.company.catchPhrase"></li>
+                <li class="list-group-item" data-ng-bind="'bs: ' + user.company.bs"></li>
+            </ul>
+            </p>
+        </div>
+    </div>
+</div>
