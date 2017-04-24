@@ -1,4 +1,4 @@
-describe('component: dashboard', function() {
+describe('component: albumItem', function() {
   var $componentController;
 
   beforeEach(module('adminApp'));
@@ -7,9 +7,8 @@ describe('component: dashboard', function() {
   }));
 
   it('should implement $onInit', function() {
-    var ctrl = $componentController('dashboard', null, null);
+    var ctrl = $componentController('albumItem', null, null);
 
     expect(ctrl.$onInit).toBeDefined();
   });
-
 });

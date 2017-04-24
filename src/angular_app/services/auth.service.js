@@ -9,8 +9,9 @@
 
       _this.signIn = signIn;
       _this.registration = registration;
-      _this.setToken = setToken;
       _this.checkAuth = checkAuth;
+      _this.clearUser = clearUser;
+      _this.user = user;
 
       function signIn(credentials) {
         var action = 'login';
@@ -59,5 +60,12 @@
         }));
         return true;
       };
+      function user() {
+        var user = JSON.parse(localStorage.getItem('currentUser')) || {};
+        return user.token ? user : false;
+      };
+      function clearUser () {
+        localStorage.removeItem('currentUser');
+      }
     }
 })();

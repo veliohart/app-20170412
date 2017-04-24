@@ -1,11 +1,18 @@
 <div class="row">
   <div class="col-sm-6">
     <h4>post</h4>
-    <p data-ng-bind="$uPosts.post">{{post.title}}</p>
+    <div class="well">
+      <p> Title: <strong>{{$uPosts.post.title}}</strong></p>
+      <p>Body: {{$uPosts.post.body}}</p>      
+    </div>
   </div>
 
   <div class="col-sm-6">
-    <h4>album</h4>
-    <p data-ng-repeat="album in $uPosts.albums track by album.id">{{album.title}}</p>
+    <h4>Comments: </h4>
+    <div class="well well-sm" data-ng-repeat="comment in $uPosts.comments track by comment.id">
+      <p>Author e-mail: <span>{{comment.email}}</span></p>
+      <p>Comment name: <span>{{comment.name}}</span></p>
+      <p>Comment body: <br> <span>{{comment.body}}</span></p>
+    </div>
   </div>
 </div>

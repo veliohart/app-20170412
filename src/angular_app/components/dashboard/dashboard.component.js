@@ -14,6 +14,7 @@
     vm.$onInit = onInit;
 
     function onInit() {
+      vm.loading = true;
       $users.getUsers()
         .then(function(result) {
           return result.data;
@@ -37,6 +38,7 @@
                 series.push(chartDataItem);
               });
               chartInit();
+              vm.loading = false;
             });
         });
     }
@@ -47,7 +49,7 @@
           type: 'column'
         },
         title: {
-          text: 'Fruit Consumption'
+          text: 'Posts & Albums'
         },
         xAxis: {
           categories: ['Posts', 'Albums']

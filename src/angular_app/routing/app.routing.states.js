@@ -8,6 +8,10 @@
         abstract: true,
         template: '<page></page>'
       },
+      logout: {
+        name: 'logout',
+        url: '/logout',
+      },
       signin: {
         name: 'signIn',
         url: '/signin',
@@ -138,8 +142,8 @@
       },
       posts: {
         name: 'userPost',
-        url: '/post/:postId',
-        parent: 'userPosts',
+        url: '/:userId/post/:postId',
+        parent: 'list',
         onEnter: function() {
           console.log('POST & COMMENTS');
         },

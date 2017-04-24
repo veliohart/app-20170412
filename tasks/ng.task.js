@@ -38,7 +38,7 @@ gulp.task('ng:inject', [], () =>
 );
 
 gulp.task('ng:js', ['lint:scripts'], () =>
-  gulp.src(PATHS.ng.src + '**/*.js')
+  gulp.src([PATHS.ng.src + '**/*.js', '!' + PATHS.ng.src + '**/*.spec.js'])
     .pipe($.changed(PATHS.ng.dest))
     .pipe($.sourcemaps.init())
     .pipe($.babel())

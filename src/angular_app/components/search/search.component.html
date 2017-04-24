@@ -35,11 +35,9 @@
     <div data-ng-class="{'col-xs-12 col-sm-6': $search.type == 'both', 'col-xs-12 col-sm-12': $search.type == 'posts'}" 
       data-ng-show="$search.type == 'albums' || $search.type == 'both'">
       <h3>Albums</h3>
-      <ul>
-        <li data-ng-repeat="album in $search.albums  | filter: {title: $search.text}">
-          <p>{{album}}</p>
-        </li>
-      </ul>
+      <div data-ng-repeat="album in $search.albums  | filter: {title: $search.text}">
+        <album-item item="album"></album-item>
+      </div>
     </div>
   </div>
 </div>

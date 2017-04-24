@@ -9,7 +9,7 @@
     });
 
   function UserPostsController($posts, $comments, $state) {
-    console.log('userPosts');
+    console.log('userPosts', $state.params.postId);
 
     var vm = this;
 
@@ -17,7 +17,7 @@
 
     function onInit() {
       vm.post = {};
-      vm.albums = [];
+      vm.comments = [];
 
       $posts.getPost($state.params.postId)
         .then(function(result) {
@@ -30,12 +30,13 @@
       $comments.getComments({
         postId: $state.params.postId
       })
-        .then(function(result) {
-          angular.copy(result.data, vm.albums);
-        })
-        .catch(function(err) {
-          console.log(err);
-        });
+      .then(function(result) {
+        angular.copy(result.data, vm.comments);
+        
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
     }
   }
 })();
