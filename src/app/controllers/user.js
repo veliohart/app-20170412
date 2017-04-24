@@ -3,6 +3,12 @@ const utils           = require('../services/utils');
 const jwt             = require('jsonwebtoken');
 const jwtsecret       = 'secretkey';
 
+module.exports = {
+  auth: auth,
+  registerUser: registerUser,
+  login: login
+};
+
 function registerUser(req, res) {
   let username = req.body['username'];
   let password = req.body['password'];
@@ -50,9 +56,3 @@ function auth(req, res) {
         console.log("err", err);
     }
 }
-
-module.exports = {
-  auth: auth,
-  registerUser: registerUser,
-  login: login
-};

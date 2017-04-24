@@ -1,5 +1,10 @@
 const Users            = require('../models/').users;
 
+module.exports = {
+  getOne: getOne,
+  getAll: getAll
+};
+
 function getAll(req, res) {
   var query = {};
   var qKeys = Object.getOwnPropertyNames(req.query);
@@ -25,8 +30,3 @@ function getOne(req, res) {
       res.send(result);
     });
 }
-
-module.exports = {
-  getOne: getOne,
-  getAll: getAll
-};
