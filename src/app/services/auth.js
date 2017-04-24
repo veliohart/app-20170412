@@ -57,7 +57,6 @@ const jwtOptions = {
 };
 
 passport.use('JWT', new JwtStrategy(jwtOptions, function(payload, done) {
-  console.log('done auth', done);
   User.findById(payload.id)
     .then(function(user) {
       user ? done(null, user) : done(null, false);
