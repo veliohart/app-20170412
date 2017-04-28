@@ -7,16 +7,16 @@
     npm test - for run angular app unit tests<br>
     
 # What inside:
-##  front-end: <br>
-    angularjs, <br>
-    ui-router,<br>
-    bootstrap,<br>
-    font-awesome,<br>
-    highcharts<br><br>
-##  back-end:<br>
-    express,<br>
-    mongoose,<br>
-    passport (JWT auth)<br>
+##  front-end: 
+    angularjs,
+    ui-router,
+    bootstrap,
+    font-awesome,
+    highcharts
+##  back-end:
+    express,
+    mongoose,
+    passport (JWT auth)
     
 # Task runner "Gulp"
     
