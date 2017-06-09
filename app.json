@@ -4,6 +4,7 @@
     "postdeploy": "npm start"
   },
   "env": {
+    port: 80
   },
   "formation": {
   },
