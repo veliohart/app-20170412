@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node_modules/gulp serve",
+    "start": "node ./node_modules/gulp serve",
     "test": "karma start config"
   },
   "author": "veliohart",
