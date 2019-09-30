@@ -21,7 +21,7 @@
     "express": "^4.14.0",
     "express-session": "^1.15.2",
     "gulp-livereload": "^3.8.1",
-    "helmet": "^2.1.1",
+    "helmet": "^3.21.1",
     "jade": "^1.11.0",
     "joi": "^13.0.0",
     "jsonwebtoken": "^8.0.0",
